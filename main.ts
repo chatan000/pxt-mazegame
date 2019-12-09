@@ -1,21 +1,44 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     for (let index = 0; index < 4; index++) {
-        mySprite.setPosition(Math.randomRange(32, 380), Math.randomRange(100, 380))
+        otherSprite.setPosition(Math.randomRange(0, 512), Math.randomRange(0, 512))
     }
     info.startCountdown(10)
 })
-let mySprite: Sprite = null
 let mySprite2: Sprite = null
 scene.setTileMap(img`
-9 9 9 9 9 9 9 9 9 9 
-9 9 7 9 9 9 9 7 9 9 
-9 7 7 7 9 9 7 7 7 9 
-9 9 e 9 9 9 9 e 9 9 
-9 9 e 9 9 9 9 e 9 9 
-9 9 9 9 8 8 8 9 9 9 
-9 9 9 8 8 8 9 9 9 9 
-9 9 8 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 7 9 9 9 9 9 9 9 9 9 9 9 7 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 7 9 9 9 9 9 9 9 9 9 9 9 7 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 7 7 7 7 7 9 9 9 9 9 9 9 7 7 7 7 7 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 e 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 8 9 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 `)
 // when turned on, the player cannot go through the
 // wall
@@ -73,7 +96,7 @@ scene.setTile(7, img`
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 `, true)
-mySprite = sprites.create(img`
+let mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . 1 1 1 . . . . . . . 
 . . . . . 1 . . . 1 . . . . . . 
@@ -95,7 +118,7 @@ mySprite = sprites.create(img`
 controller.moveSprite(mySprite)
 // camera follows sprite throughout game
 scene.cameraFollowSprite(mySprite)
-for (let index = 0; index < 1; index++) {
+for (let index = 0; index < 4; index++) {
     mySprite2 = sprites.create(img`
 . . . . . . . . . . . c c . . . 
 . . c c . c c c c 7 c 2 7 c . . 
@@ -114,6 +137,7 @@ c 5 5 5 c 4 c 5 5 5 c 4 c 5 c .
 c 5 5 5 5 c 5 5 5 5 c 4 c 5 c . 
 . c c c c c c c c c . . c c c . 
 `, SpriteKind.Food)
-    mySprite.setPosition(Math.randomRange(0, 512), Math.randomRange(0, 512))
+    mySprite2.setPosition(Math.randomRange(0, 512), Math.randomRange(0, 512))
+    mySprite2.z = 1
 }
 info.startCountdown(10)
